@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
     <title>Test HTML Document</title>
+    <script src="src/script.js"></script>
   </head>
   <body>
-    <h1 class="text-3xl">Hello, world!</h1>
-    <p>This is a test HTML document.</p>
+    <div class="flex flex-col items-center gap-2">
+      <h1 class="text-3xl">Hello, world!</h1>
+      <p>This is a test HTML document.</p>
+      <input id="text" type="text" placeholder="Enter text here" />
+      <button class="btn" onclick="request()">Submit</button>
+    </div>
   </body>
 </html>
