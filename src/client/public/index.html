@@ -4,15 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Test HTML Document</title>
+    <link rel="icon" href="img/favicon.png" />
     <script src="src/script.js"></script>
+    <title>Weather App</title>
   </head>
+
   <body>
-    <div class="flex flex-col items-center gap-2">
-      <h1 class="text-3xl">Hello, world!</h1>
-      <p>This is a test HTML document.</p>
-      <input id="text" type="text" placeholder="Enter text here" />
-      <button class="btn" onclick="request()">Submit</button>
+    <div
+      class="hero min-h-screen"
+      style="background-image: url(img/background.jpg)"
+    >
+      <div class="hero-overlay bg-opacity-60"></div>
+      <div class="hero-content text-center text-neutral-content">
+        <div class="max-w-md">
+          <h1 class="mb-5 text-5xl font-bold">Weather</h1>
+          <form id="weatherForm">
+            <p class="mb-5">
+              <input
+                id="cityInput"
+                type="text"
+                placeholder="Enter your city"
+                class="input input-bordered input-primary w-full max-w-xs"
+                required
+              />
+            </p>
+            <button type="submit" class="btn btn-primary">Get Weather</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
