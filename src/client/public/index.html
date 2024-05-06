@@ -16,7 +16,7 @@
     >
       <div class="hero-overlay bg-opacity-60"></div>
       <div class="hero-content text-center text-neutral-content">
-        <div class="max-w-md">
+        <div class="max-w-md flex flex-col items-center">
           <h1 class="mb-5 text-5xl font-bold">Weather</h1>
           <form id="weatherForm">
             <p class="mb-5">
@@ -28,8 +28,97 @@
                 required
               />
             </p>
-            <button type="submit" class="btn btn-primary">Get Weather</button>
+            <button type="submit" class="btn btn-primary">
+              Get Current Weather
+            </button>
           </form>
+
+          <div class="stats stats-vertical shadow m-8">
+            <div class="stat">
+              <div class="stat-title">City</div>
+              <div id="cityDisplay" class="stat-value"></div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">Temperature</div>
+              <div id="temperatureDisplay" class="stat-value"></div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">Humidity</div>
+              <div id="humidityDisplay" class="stat-value"></div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">Wind Speed</div>
+              <div id="windSpeedDisplay" class="stat-value"></div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">Condition</div>
+              <div id="conditionDisplay" class="stat-value"></div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-title">Data From</div>
+              <div id="observationTimeDisplay" class="stat-value"></div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary w-24" onclick="getWeatherReport()">
+            Get Report
+          </button>
+
+          <div class="stats shadow mt-8">
+            <div class="stat place-items-center">
+              <div class="stat-title">AVG Temp.</div>
+              <div id="avgTemp" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Min Temp.</div>
+              <div id="minTemp" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Max Temp.</div>
+              <div id="maxTemp" class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stats shadow mt-8">
+            <div class="stat place-items-center">
+              <div class="stat-title">AVG Humid.</div>
+              <div id="avgHumid" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Min Humid.</div>
+              <div id="minHumid" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Max Humid.</div>
+              <div id="maxHumid" class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stats shadow mt-8">
+            <div class="stat place-items-center">
+              <div class="stat-title">AVG Wind-S.</div>
+              <div id="avgWindSpeed" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Min Wind-S.</div>
+              <div id="minWindSpeed" class="stat-value">-</div>
+            </div>
+
+            <div class="stat place-items-center">
+              <div class="stat-title">Max Wind-S.</div>
+              <div id="maxWindSpeed" class="stat-value">-</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

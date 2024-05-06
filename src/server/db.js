@@ -21,7 +21,27 @@ async function getConnection() {
   }
 }
 
+async function getWeatherReport(city, fromDate, toDate) {
+  try {
+    let pool = await getConnection();
+    let result = await pool
+      .request()
+      .input("City", sql.VarChar, city)
+      .input("FromDate", sql.DateTime, fromDate)
+      .input("ToDate", sql.DateTime, toDate)
+      .query(
+        "SELECT * FROM db_owner.Wieland_fn_WeatherReport(@City, @FromDate, @ToDate)"
+      );
+
+    return result.recordset[0];
+  } catch (err) {
+    console.error("Error while querying the database:", err);
+    throw err;
+  }
+}
+
 module.exports = {
   getConnection,
   sql,
+  getWeatherReport,
 };
