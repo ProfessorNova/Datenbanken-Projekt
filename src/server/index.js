@@ -9,6 +9,7 @@ app.use(cors());
 
 const port = process.env.PORT || 3000;
 
+// Test endpoint to check if querying the database works
 app.get("/testdb", async (req, res) => {
   try {
     const pool = await getConnection();
@@ -20,6 +21,7 @@ app.get("/testdb", async (req, res) => {
   }
 });
 
+// Endpoint to retrieve weather data for a city
 app.get("/weather/:city", async (req, res) => {
   try {
     const city = req.params.city;
@@ -81,6 +83,7 @@ app.get("/weather/:city", async (req, res) => {
         .input("Condition", sql.VarChar, weatherData.condition_text)
         .execute("Wieland_sp_InsertWeatherData");
 
+      // Retrieve newly inserted data
       const updatedResult = await pool
         .request()
         .input("City", sql.VarChar, city)
@@ -95,9 +98,12 @@ app.get("/weather/:city", async (req, res) => {
   }
 });
 
+// Endpoint to retrieve weather report for a city
 app.get("/weather-report/:city", async (req, res) => {
   try {
     const city = req.params.city;
+    // Get weather report for the entire year of 2024
+    // This is just a placeholder, you can change the dates as needed
     const fromDate = "2024-01-01";
     const toDate = "2025-01-01";
     const result = await getWeatherReport(city, fromDate, toDate);
